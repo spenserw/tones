@@ -14,7 +14,7 @@ const NODES = [
   analyser,
   //audioCtx.createWaveShaper(),
   //audioCtx.createGain(),
-  //audioCtx.createBiquadFilter()
+  audioCtx.createBiquadFilter()
 ];
 
 function buildPipe(source) {
@@ -79,7 +79,7 @@ function makeDistortionCurve(amount) { // function to make curve shape for disto
 };
 
 function makeSquareWave() {
-  const SQUARE_SIZE = audioCtx.sampleRate / 90;
+  const SQUARE_SIZE = audioCtx.sampleRate / 1000;
   let
     flag = false,
     lastToggle = 0;
@@ -104,7 +104,7 @@ function makeSquareWave() {
 function makeSinWave() {
   const
     amplitude = 1.0,
-    frequency = 50;
+    frequency = 500;
 
   for(let channel = 0; channel < CHANNELS; channel++) {
     const curBuf = AUDIO_BUFFER.getChannelData(channel);
